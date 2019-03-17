@@ -1,0 +1,15 @@
+====== ORA-Errors ======
+the Problem was a DB-Link has been recreated and the Objects on that Schema had not been recompiled.
+<code plsql>
+SET SERVEROUTPUT ON;
+DECLARE c SYS_REFCURSOR;
+s_dummy VARCHAR2 (1);
+s_dummy_culprit VARCHAR2 (1);
+BEGIN
+OPEN c FOR 'select dummy from dual'; 
+
+FETCH c INTO s_dummy, s_dummy_culprit; --<== here is the problem 
+CLOSE c;
+END;
+/
+</code>

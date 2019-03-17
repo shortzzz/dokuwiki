@@ -1,0 +1,7 @@
+====== Oracle Count Records Approximately ======
+Mit diesem Selekt kann man die ungefähre Anzahl Rows in einer Tabelle herausfinden:
+<code plsql>
+select num_rows
+  from user_tables
+ where upper(table_name) = upper('XY')
+</code>

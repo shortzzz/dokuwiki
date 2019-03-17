@@ -1,0 +1,14 @@
+====== Webdav Begrenzung der Dateigrösse ======
+
+Windows Webdav Dateibegrenzung\\
+Windows begreznt die Dateigrösse normalerweise auf ca. 50 MB. Dies kann man wie folgt umgehen:\\
+\\
+Click Start, click Run, type regedit, and then click OK.\\
+Locate and then click the following registry subkey:\\
+HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters\\
+In the right pane, right-click the FileSizeLimitInBytes value, and then click Modify.\\
+If you cannot see the FileSizeLimitInBytes value, right-click the blank space in the right pane, click New, click DWORD Value, type FileSizeLimitInBytes, and then click OK.\\
+In the Edit DWORD Value box, click to select the Decimal option. In the box under Value data, type a value that is larger than the size of the file that you want to download. Click OK.\\
+Note The default value for the file size limit is 50000000 bytes.\\
+Quit Registry Editor. Restart the computer.
+

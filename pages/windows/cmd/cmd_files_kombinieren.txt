@@ -1,0 +1,6 @@
+====== Windows CMD Files kombinieren ======
+
+<code batch>
+copy *.js bigfile.txt
+</code>
+

@@ -1,0 +1,33 @@
+====== Webdav mit VBA verbinden ======
+
+VB-Script zum verbinden von Webdav NET USE gibt immer viele Fehler
+
+Eine Alternative dazu ist folgednes Script
+
+<code vb>
+Set objNetwork = WScript.CreateObject("WScript.Network")
+objNetwork.MapNetworkDrive "I:" , "https://www.ressource.com/path/to/folder/", false, "username", "password"
+</code>
+
+Quelle: [[http://ss64.com/vb/mapnetworkdrive.html|http://ss64.com/vb/mapnetworkdrive.html]]
+
+<code vb>
+Syntax
+objNetwork.MapNetworkDrive(strLocalDrive, strRemoteShare, [persistent], [strUser], [strPassword])
+
+Key
+objNetwork : A WScript.network object
+
+strLocalDrive : The drive letter (e.g. L:)
+
+strRemoteShare : The UNC path to the remote drive \\MyServer\MyPrinter
+(String value)
+
+persistent : True/False - store the mapping persistently in the users profile
+default = false
+
+strUser : The user name. (Optional)
+
+strPassword : The password. (Optional)
+</code>
+

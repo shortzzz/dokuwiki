@@ -1,0 +1,18 @@
+====== Screenshot erstellen ======
+
+Skript abspeichern und ausführbar machen
+
+''chmod +x''
+
+<font inherit/inherit;;inherit;;rgb(251, 250, 249)>und danach der ''PrintScreen'' Taste zuweisen</font>
+
+<code bash>
+#!/bin/bash
+
+mkdir ~/Pictures/.print_screen/
+
+DATE=$(date +"%Y%m%d%H%M")
+import ~/Pictures/.print_screen/$DATE.png
+pinta ~/Pictures/.print_screen/$DATE.png
+</code>
+

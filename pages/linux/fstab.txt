@@ -1,0 +1,13 @@
+====== fstab ======
+===== nfs Automount =====
+<code shell>
+sudo mkdir /media/xyz
+sudo chmod 777 /media/xyz
+sudo chown 999:999
+</code>
+
+Folgendes muss im File /etc/fstab eingetragen werden
+<code>
+server-ip:/path/to/share   /media/xyz/   nfs rw,soft,timeo=11,bg,intr,_netdev,user 0 0
+</code>
+

@@ -1,0 +1,38 @@
+====== Rsync ======
+===== Backup mit Timestamp =====
+Ändert ein File im Startverzeichnis, so wird das im Zielverzeichnis mit einem Zeistempel versehen.
+<code>
+rsync -avb --suffix=_`date +%Y%m%d%H%M%S` /home/user/Downloads/rsync/A/ /home/user/Downloads/rsync/B/
+</code>
+**Erklärung:**
+1. Rsync ausführen
+1. File 1.txt wird von A nach B kopiert, beide Verzeichnisse haben das identische File 1.txt
+2. In Folder A ändert das File 1.txt
+3. Rsync ausführen
+4. Das File 1.txt wird von A nach B kopiert. das Alte File in B wird mit einem Zeitstempel veresehen.
+
+
+===== Backup ohne Timestamp und Exclude (File wird im Ziel überschrieben) =====
+Der rsync-Aufruf sieht so aus:
+<code>
+rsync -r -t -v -u --progress -s --perms --chmod=a+rwx --exclude-from '/path/to/rsync_exclude.txt' /directory_to_save/ rsync://192.168.1.123:/path/to/backup
+</code>
+Die Datei rsync_exclude.txt hat folgenden inhalt
+<code text>
+.android_secure
+.cloudagent
+.estrongs
+.face
+.nomedia
+.SMT
+.userReturn
+360
+ADM
+Android
+backups
+DCIM/.thumbnails
+ezPDFReader
+MapsWithMe
+PlayerPro
+tmp
+</code>

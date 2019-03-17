@@ -1,0 +1,10 @@
+====== VBA auf NULL prüfen ======
+
+Möchte man einen Wert in VBA auf prüfen ob er NULL ist, kann man dies, nicht einfach per IF Value = Null Then … machen. So gehts:
+
+<code vb>
+IF IsNull(myVar) Then
+       'Do Something
+End If
+</code>
+

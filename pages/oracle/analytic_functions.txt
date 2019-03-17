@@ -1,0 +1,23 @@
+====== Analytische Funktionen ======
+===== Ration To Report =====
+Man möchte für jede Abteilung die Löhne der einzelnen Mitarbeitern im Vergleich des gesamt Lohns pro Abteilung ausgeben.
+
+Mit einem herkömmlichen Select kann dies so gelöst werden:
+<code plsql>
+SELECT e1.deptno, e1.sal, e2.sum_sal, (e1.sal/e2.sum_sal) sum_tot
+FROM emp e1,
+ (
+   SELECT deptno, SUM (sal) sum_sal
+   FROM emp
+   GROUP BY deptno
+) e2
+WHERE e1.deptno = e2.deptno
+ORDER BY e1.deptno
+</code>
+
+Hier muss die Tabelle EMP zwei Mal ausgelesen werden. Oracle bietet Analytische Funktionen, damit die Tabelle EMP nur einmal ausgelesen werden muss. Das Pendant zum obigen Select sieht dann so aus:
+<code plsql>
+SELECT depno, empno, sal, RATIO_TO_REPORT(sal) OVER (PARTITION BY deptno) sum_tot
+FROM emp
+</code>
+

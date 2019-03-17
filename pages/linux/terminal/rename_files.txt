@@ -1,0 +1,17 @@
+====== Dateien Umbenennen ======
+===== Filename Punkte und Leerzeichen durch _ ersetzen =====
+<code bash>
+rename 's/[. -]+/_/g' *
+</code>
+
+===== Lowercase =====
+<code bash>
+for i in $( ls | grep [A-Z] ); do mv -i $i `echo $i | tr 'A-Z' 'a-z'`; done
+</code>
+
+===== Ersetzen =====
+<code bash>
+rename 's/hier_ist_der_zu_ersetzende_text//g' *
+</code>
+
+[[linux:terminal:terminal|[Up]]] | [[:start|[Home]]]

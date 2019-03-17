@@ -1,0 +1,13 @@
+====== Windows Explorer mit bestimmten Pfad öffnen ======
+
+Aktueller Pfad in CMD mit dem Explorer öffnen
+
+<code batch>
+explorer .
+</code>
+
+Explorer öffnen und bestimmte Datei markieren
+
+<code batch>
+explorer /select,"C:\Pfad zur\Datei.txt"
+</code>

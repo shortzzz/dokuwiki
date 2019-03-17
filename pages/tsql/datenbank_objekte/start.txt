@@ -1,0 +1,94 @@
+====== Datenbank Objekte ======
+
+===== View =====
+
+Mit folgendem statement kann man das Create-Statement der View sehen:
+
+<code tsql>
+sp_helptext N'NameOfView'
+</code>
+===== Tabelle =====
+
+==== Default-Wert für eine Spalte ====
+
+Hat man in einer Tabelle eine Spalte ID mit Datentyp uniqueidentifier, so kann SQL-Server automatisch eine neue ID für dieses Feld generieren, ohne dass im INSERT NEWID() aufgerufen werden muss.
+
+**Für eine bestehende Tabelle:**
+<code tsql>
+ALTER TABLE dbo.MY_TABLE ADD DEFAULT NEWID() FOR [ID]
+</code>
+
+Wenn die Ziel-Spalten vom Datentyp BIT sind:
+
+<code tsql>
+ALTER TABLE [dbo].[MY_TABLE] ADD DEFAULT ((0)) FOR [PRC_FULL]
+</code>
+
+**Für eine neue Tabelle:**
+
+Dazu gibt man im Create-Table-Statement folgendes ein:
+
+<code tsql>
+CREATE TABLE [DBO].[CUST](
+      [CUST_ID] [UNIQUEIDENTIFIER] NOT NULL DEFAULT (NEWID()),
+      [COMPANY] [VARCHAR](30) NOT NULL,
+      [CONTACT_NAME] [VARCHAR](60) NOT NULL,
+      [ADDRESS] [VARCHAR](30) NOT NULL,
+      [CITY] [VARCHAR](30) NOT NULL,
+      [STATE_PROVINCE] [VARCHAR](10) NULL,
+      [POSTAL_CODE] [VARCHAR](10) NOT NULL,
+      [COUNTRY] [VARCHAR](20) NOT NULL,
+      [TELEPHONE] [VARCHAR](15) NOT NULL,
+      [FAX] [VARCHAR](15) NULL
+)
+
+INSERT INTO [ODS].[DBO].[CUST]
+           ([COMPANY]
+           ,[CONTACT_NAME]
+           ,[ADDRESS]
+           ,[CITY]
+           ,[STATE_PROVINCE]
+           ,[POSTAL_CODE]
+           ,[COUNTRY]
+           ,[TELEPHONE]
+           ,[FAX])
+     VALUES
+           ('WARTIAN HERKKU'
+           ,'PIRKKO KOSKITALO'
+           ,'TORIKATU 38'
+           ,'OULU'
+           ,NULL
+           ,'90110'
+           ,'FINLAND'
+           ,'981-443655'
+           ,'981-443655')
+
+GO
+</code>
+
+**Löschen eines Default-Constraints**
+<code tsql>
+DECLARE @defname VARCHAR(100), @cmd VARCHAR(1000)
+DECLARE @tableName VARCHAR(100)
+DECLARE @columnName VARCHAR(100)
+
+SET @tableName = 'MY_TABLE'
+SET @columnName = 'MY_COLUMN'
+SET @defname = (
+      SELECT name
+      FROM sysobjects so JOIN sysconstraints sc
+      ON so.id = sc.constid
+      WHERE object_name(so.parent_obj) = @tableName
+      AND so.xtype = 'D'
+      AND sc.colid = (
+            SELECT colid
+            FROM syscolumns
+            WHERE id = object_id(@tableName)
+            AND name = @columnName
+            )
+      )
+
+SET @cmd = 'ALTER TABLE ' + @tableName + ' DROP CONSTRAINT ' + @defname
+EXEC(@cmd)
+</code>
+

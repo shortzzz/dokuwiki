@@ -1,0 +1,13 @@
+====== Generate Range of Numbers ======
+
+I had the problem to select a number field with leading blanks.. this is my solution:
+<code plsql>
+SELECT LPAD (
+             LEVEL + doc_num_from - 1
+            ,12
+            ,' '
+            )
+         AS rnum
+  FROM DUAL
+CONNECT BY LEVEL < doc_num_to - doc_num_from + 2
+</code>

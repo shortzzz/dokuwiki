@@ -1,0 +1,42 @@
+====== TinyCore Linux - Das Wichtigste ======
+
+[[http://www.tinycorelinux.net/|http://www.tinycorelinux.net/]]
+
+<code bash>
+sudo fdisk /dev/mmcblk0
+
+p drücken
+
+Device Boot Start End Blocks Id System
+/dev/mmcblk0p1 342 2902 30720 c Win95 FAT32 (LBA)
+/dev/mmcblk0p2 2903 5089280 61036536 83 Linux
+
+Merke den Startcylinder der partition “/dev/mmcblk0p2” hier 2903. Lösche Partition 2 mit d. Jetzt mit n eine neue Partition erstellen. Als Partitionsnummer 2 eingeben. Startzylinder (2903) eigeben. Als Endzylinder nichts eingeben, somit wird der gesamte restliche platz für die Partition verwendet. Mit w die Partiton erstellen.
+</code>
+
+Neustart
+
+<code bash>
+sudo resize2fs /dev/mmcblk0p2
+
+Nun kann man programme installieren:
+tce-load -iw python
+tce-load -iw curl
+</code>
+
+Um Konfiguration am System zu persistieren:\\
+Persistence:
+
+<code bash>
+filetool.sh -b
+</code>
+===== Startup Befehle =====
+
+Hier werden startup-Befehle eingegeben:
+
+<code bash>
+/opt/bootlocal.sh
+</code>
+
+filetool.sh -b nicht vergessen
+

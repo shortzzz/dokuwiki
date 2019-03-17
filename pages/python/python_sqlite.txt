@@ -1,0 +1,56 @@
+====== Python Sqlite ======
+
+Template für Sqlite3 Zugriff aus Python
+
+<code python>
+import sqlite3
+
+class DB():
+    def now(self):
+        return int((datetime.datetime.today()).strftime('%y%m%d%H%M'))
+
+    def initDB(self):
+        dbcon = sqlite3.connect(DATABASE_DIR)
+        with dbcon:
+            cursor = dbcon.cursor()
+            cursor.execute (
+                """ CREATE TABLE IF NOT EXISTS TABLE_NAME ( 
+                         col1 integer )""")
+
+    def addNewPassWord(self, parameter1):
+        sucessFlag=0
+        now = self.now()
+        print (now)
+        while sucessFlag==0:
+            try:
+                dbcon = sqlite3.connect(DATABASE_DIR)
+                with dbcon:
+                    cursor = dbcon.cursor()
+                    try:
+                        cursor.execute("INSERT INTO table_name (Col1) VALUES (?)", (parameter1, now, now ))
+                    except:
+                        pass
+                    cursor.execute("UPDATE table_name SET UPD = ? WHERE Col1 = ? ", (now, parameter1))
+                    dbcon.commit()
+                    sucessFlag=1
+            except Exception, e:
+                print("Exception addNewPassword \n %s " % str(e))
+                time.sleep(1)
+
+    def getAllPassWords(self):
+        sucessFlag=0
+        while sucessFlag==0:
+            try:
+                dbcon = sqlite3.connect(DATABASE_DIR)
+                with dbcon:
+                    cursor = dbcon.cursor()
+                    cursor.execute(''' SELECT col1
+                                         FROM table_name
+                                        ORDER BY 1 DESC ''')
+                    db_data=cursor.fetchall()
+                    sucessFlag=1
+            except:
+                time.sleep(1)
+        print (db_data)
+        return db_data
+</code>

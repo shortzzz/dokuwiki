@@ -1,0 +1,12 @@
+====== Excel ======
+
+===== Identisch über mehrere Zeilen =====
+
+<code>
+=ZÄHLENWENN(B12:E12;B12)=4
+</code>
+
+^A^B^C^D^Formel^Ergebnis|
+|702|701|704|703|=ZÄHLENWENN(A1:D1;A1)=4|FALSCH|
+|799|799|799|799|=ZÄHLENWENN(A2:D2,A2)=4|RICHTIG|
+

@@ -1,0 +1,20 @@
+====== ddrescue ======
+
+===== Image erstellen: =====
+
+<code bash>
+clear && date && sudo ddrescue /dev/sdb /media/andy/iomega/raspberrypi_pyload.img && date
+</code>
+===== Image zurückspielen: =====
+
+<code bash>
+date && sudo ddrescue /media/andy/iomega/raspberrypi.img /dev/sdb --force && date
+</code>
+===== Installation =====
+
+<code bash>
+sudo apt-get install gddrescue
+</code>
+
+[[linux:terminal:terminal|[Up]]] | [[:start|[Home]]]
+

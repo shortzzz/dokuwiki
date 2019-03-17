@@ -1,0 +1,8 @@
+====== Python Remove Empty Lines From String ======
+
+<code python>
+text = os.linesep.join([s for s in text.splitlines() if s])
+</code>
+where text is the string with the possible extraneous lines?
+
+[[http://stackoverflow.com/questions/1140958/whats-a-quick-one-liner-to-remove-empty-lines-from-a-python-string/1140966#1140966]]

@@ -1,0 +1,17 @@
+====== Oracle Warehouse Builder (OWB) ======
+
+===== Sprache ändern =====
+
+Am Schluss beider Files die folgende Zeile einfügen:
+
+<code text>
+AddVMOption -Duser.language=en
+</code>
+
+C:\OWB11GR2\ide\bin\ide.conf\\
+C:\ORACLE\product\11.2.0\client_1\sqldeveloper\ide\bin\ide.conf\\
+\\
+Nach einem Neustart des OWBs ist die Sprache nun auf English eingestellt
+
+Quelle: [[http://blog.trivadis.com/b/danischnider/archive/2011/08/25/change-the-language-in-oracle-warehouse-builder.aspx|http://blog.trivadis.com/b/danischnider/archive/2011/08/25/change-the-language-in-oracle-warehouse-builder.aspx]]
+

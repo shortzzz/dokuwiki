@@ -1,0 +1,18 @@
+====== KSuperKey - Xfce Menu mit Win-Tast öffnen ======
+
+[[https://github.com/hanschen/ksuperkey|https://github.com/hanschen/ksuperkey]]
+
+===== Installation =====
+
+<code bash>
+sudo apt-get install git gcc make libx11-dev libxtst-dev pkg-config
+git clone https://github.com/hanschen/ksuperkey.git
+cd ksuperkey
+make
+sudo make install
+</code>
+===== Autostart =====
+
+Jetzt noch mit folgenden Schritten ksuperkey automatisch starten lassen:\\
+{{:linux:software:d0e627eae344a22a2c9dc73ac66cd514.png}}
+

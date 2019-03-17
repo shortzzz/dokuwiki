@@ -1,0 +1,9 @@
+====== cd into dir with leading dash ======
+the dir is for example:
+-2015-10-05-2044
+
+<code bash>
+cd ./-2015-10-05-2044
+</code>
+
+[[linux:terminal:terminal|[Up]]] | [[:start|[Home]]]

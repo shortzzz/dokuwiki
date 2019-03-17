@@ -1,0 +1,15 @@
+====== Windows Berechtigung ändern ======
+
+Haben Sie die Berechtigung ihres Benutzerordners ausversehen verstellt und können nicht mehr auf Ihre Dokumente zugreifen? Berechtigung verweigert?
+
+===== Dadurch lösen Sie das Problem =====
+
+  - CMD als Admin ausführen
+  - folgendes eingeben
+
+<code batch>
+TAKEOWN /F D:\Verzeichnis/R /D J
+</code>
+
+Wobei D:\Verzeichnis der Pfad zu Ihrem Benutzerordner ist.
+

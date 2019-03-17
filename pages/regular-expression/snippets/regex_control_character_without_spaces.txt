@@ -1,0 +1,18 @@
+====== Regex Control Characters ohne Leerzeichen ======
+
+Steuerzeichen in Regex lassen sich mit :cntrl: suchen, jedoch werden so auch normale Zeilenumbrüche, Tabulatoren etc ersetzt, wenn man diese Leerzeichen behalten möchte kann man den Folgenden String verwenden:
+
+lookaheads
+<code>
+(?![\s])[[:cntrl:]]
+</code>
+Quelle: [[http://stackoverflow.com/a/17328119]]
+
+
+Ein paar Steuerzeichen mit der Tastatur erzeugen: \\ 
+alt+03 -> ETX \\ 
+alt+04 -> EOT
+
+Quelle: [[http://www.theasciicode.com.ar/]]
+
+[[..:|[Up]]] | [[:start|[Home]]]

@@ -1,0 +1,13 @@
+====== Count Files in Directory ======
+<code bash>
+ls -l | grep ^- | wc -l # Files
+ls -l | grep ^d | wc -l # Directories
+ls -l | grep ^l | wc -l # Links
+</code>
+
+Count with specific ending (eg. mkv):
+<code bash>
+ls -l | grep -i ^-.*mkv | wc -l
+</code>
+
+[[linux:terminal:terminal|[Up]]] | [[:start|[Home]]]

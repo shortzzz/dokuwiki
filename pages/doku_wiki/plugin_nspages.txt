@@ -1,0 +1,6 @@
+====== Plugin nspages ======
+
+<code>
+<nspages -subns -title -exclude -simpleList -textPages="" -textNS="" -hideNoPages -hideNoSubns>
+</code>
+

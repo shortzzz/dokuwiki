@@ -1,0 +1,32 @@
+====== Wake On Lan and Mount Nas ======
+Weckt einen Server via Wake-On-Lan auf und wartet bis er hochgefahren ist, danach werden die Shares gemountet.
+
+<code bash>
+#!/usr/bin/env bash
+
+# Wake On Lan and mount cifs/smb folders
+
+function mount_if_not(){
+	mount $1 &>/dev/null
+}
+
+wakeonlan xx:xx:xx:xx:xx:xx # change mac 
+sleep 1
+wakeonlan xx:xx:xx:xx:xx:xx # change mac 
+sleep 1
+
+for i in {1..20}; do
+  # change ip
+	if ($( ping -c 1 192.168.1.2 &>/dev/null )) ; then
+		# echo 'now break' 
+		break
+	fi
+	# echo 'sleep again'
+	sleep 5
+done
+
+mount_if_not '/media/nas_folder_a'
+mount_if_not '/media/nas_folder_b'
+mount_if_not '/media/nas_folder_c'
+mount_if_not '/media/nas_folder_d'
+</code>

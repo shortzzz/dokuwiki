@@ -1,0 +1,7 @@
+====== Show Only Buttons for Current Connection on Windowbar ======
+
+  - toad options
+  - Toolbars/Menu
+  - Toolbars
+  - Show Only Buttons for current connection on window bar
+

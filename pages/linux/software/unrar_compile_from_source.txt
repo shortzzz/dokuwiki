@@ -1,0 +1,16 @@
+====== Unrar Compile from Source ======
+
+First see whats the most recent version:
+
+[[ftp://ftp.rarlab.com/rar/|ftp://ftp.rarlab.com/rar/]]
+
+look for unrarsrc-*.tar.gz
+
+<code bash>
+wget http://www.rarlab.com/rar/unrarsrc-4.1.4.tar.gz
+tar xzvf unrarsrc-4.1.4.tar.gz # replace Version
+cd unrar
+make
+sudo make install
+</code>
+

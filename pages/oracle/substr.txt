@@ -1,0 +1,21 @@
+====== substr ======
+<code plsql>
+substr( string, start_position, [ länge] )
+</code>
+Für start_position kann 0 oder 1 angegeben werden, dadurch wird der string von Beginn aus ausgelesen
+
+
+===== Beispiele: =====
+
+Ohne End-Parameter wird der gesamte string zurückgegeben
+<code plsql>
+substr( 'string', 1 )
+</code>
+
+<code plsql>
+substr( 'string', 0 ) -- gibt auch string zurück
+</code>
+
+<code plsql>
+substr( 'string', 0, 3 ) -- gibt str zurück
+</code>
