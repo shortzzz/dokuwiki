@@ -1,0 +1,9 @@
+====== Doku Wiki Config ======
+
+Im File /conf/dokuwiki.php folgende Anpassungen vornehmen:
+
+<code php>
+$conf['useheading']  = 1;  //use the first heading in a page as its name
+$conf['tocminheads'] = 1;  //Minimum amount of headlines that determines if a TOC is built
+$conf['youarehere']  = 1;  //show "You are here" navigation? 0|1
+</code>
