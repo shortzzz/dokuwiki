@@ -1,6 +1,30 @@
 ====== Plugin nspages ======
 
+Folgendes wird jeweils auf im File start.txt eingetragen, somit wird das Inhaltverzeichnis dieses Ordners erstellt
+
 <code>
 <nspages -subns -title -exclude -simpleList -textPages="" -textNS="" -hideNoPages -hideNoSubns>
+</code>
+
+Im File /lib/plugins/nsexport/packer/ziphtml/export.css wird folgendes eingetragen:
+
+<code css>
+/**
+ * Add custom CSS to be applied in exported files here
+ */
+html, body {
+    background: #fff;
+}
+
+body {
+  margin-top:    20px;
+  margin-left:   20px;
+  margin-right:  20px;
+  margin-bottom: 20px;
+}
+
+#dw__toc {
+    margin: 0px;
+}
 </code>
 

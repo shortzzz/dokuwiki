@@ -1,0 +1,8 @@
+====== Suspend nach 15 Minuten Linux Mint ======
+
+<code>
+xautolock -detectsleep -time 15 -locker  'systemctl suspend'
+</code>
+
+{{:linux:software:f668f7b635c3eb2d5886f179024ab4a4.png}}
+

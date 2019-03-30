@@ -1,2 +1,2 @@
 ====== Inhalt des Wikis ======
-<nspages -subns -title -exclude -simpleList -textPages="" -textNS="" -hideNoPages -hideNoSubns>
+<nspages -subns -title -exclude -simpleList -textPages="" -textNS="" -hideNoPages -hideNoSubns -sortByCreationDate>
